@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-Thin.woff2), url(../fonts/Vazirmatn-Thin.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-ExtraLight.woff2), url(../fonts/Vazirmatn-ExtraLight.ttf);
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-Light.woff2), url(../fonts/Vazirmatn-Light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-Regular.woff2), url(../fonts/Vazirmatn-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-Medium.woff2), url(../fonts/Vazirmatn-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-SemiBold.woff2), url(../fonts/Vazirmatn-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-Bold.woff2), url(../fonts/Vazirmatn-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-ExtraBold.woff2), url(../fonts/Vazirmatn-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn-Black.woff2), url(../fonts/Vazirmatn-Black.ttf);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazirmatn[wght].woff2), url(../fonts/Vazirmatn[wght].ttf);
+    font-weight:bold ;
+}
+
+html {
+    font-family: 'vazir', sans-serif;
+}
+
+
+/*  */
+
+
+#toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1e96ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 1;
+    animation: shake 0.5s ease-in-out, fadeOut 1s 3s forwards;
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(-50%) translateX(0); }
+    25% { transform: translateX(-50%) translateX(-10px); }
+    50% { transform: translateX(-50%) translateX(10px); }
+    75% { transform: translateX(-50%) translateX(-10px); }
+    100% { transform: translateX(-50%) translateX(0); }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
