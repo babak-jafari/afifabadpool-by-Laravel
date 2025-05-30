@@ -26,43 +26,43 @@ overlay.addEventListener('click' , () => closeSidebar());
 window.addEventListener('resize',() => closeSidebar())
 
 
-const loginButton = document.querySelectorAll('.login');
-  const closeLoginButton = document.getElementById('closelogin');
-  const closeRegisterButton = document.getElementById('closeregister');
-  const loginForm = document.getElementById('loginform');
-  const signupForm = document.getElementById('signupform');
-  const signupButton = document.getElementById('signup-btn');
+// const loginButton = document.querySelectorAll('.login');
+//   const closeLoginButton = document.getElementById('closelogin');
+//   const closeRegisterButton = document.getElementById('closeregister');
+//   const loginForm = document.getElementById('loginform');
+//   const signupForm = document.getElementById('signupform');
+//   const signupButton = document.getElementById('signup-btn');
   
-  function openLoginForm() {
-    loginForm.classList.add('flex');
-    loginForm.classList.remove('hidden');
-  }
+//   function openLoginForm() {
+//     loginForm.classList.add('flex');
+//     loginForm.classList.remove('hidden');
+//   }
   
-  function closeLoginForm() {
-    loginForm.classList.add('hidden');
-    loginForm.classList.remove('flex');
-  }
+//   function closeLoginForm() {
+//     loginForm.classList.add('hidden');
+//     loginForm.classList.remove('flex');
+//   }
   
-  function openSignupForm() {
-    signupForm.classList.add('flex');
-    signupForm.classList.remove('hidden');
-  }
+//   function openSignupForm() {
+//     signupForm.classList.add('flex');
+//     signupForm.classList.remove('hidden');
+//   }
   
-  function closeSignupForm() {
-    signupForm.classList.add('hidden');
-    signupForm.classList.remove('flex');
-  }
+//   function closeSignupForm() {
+//     signupForm.classList.add('hidden');
+//     signupForm.classList.remove('flex');
+//   }
   
-  loginButton.forEach(button => {
-    button.addEventListener('click', () => openLoginForm());
-  });
-  closeLoginButton.addEventListener('click', () => closeLoginForm());
-  closeRegisterButton.addEventListener('click', () => closeSignupForm());
-  signupButton.addEventListener('click', () => {
-    event.preventDefault(); 
-    closeLoginForm();
-    openSignupForm();
-  });
+//   loginButton.forEach(button => {
+//     button.addEventListener('click', () => openLoginForm());
+//   });
+//   closeLoginButton.addEventListener('click', () => closeLoginForm());
+//   closeRegisterButton.addEventListener('click', () => closeSignupForm());
+//   signupButton.addEventListener('click', () => {
+//     event.preventDefault(); 
+//     closeLoginForm();
+//     openSignupForm();
+//   });
 
 // cvbc
 
@@ -116,4 +116,48 @@ document.getElementById('ticket-form').addEventListener('submit', function (e) {
       });
   });
   
+  // buy ticket
+  // const dateButtonsContainer = document.getElementById('date-buttons');
+  // const daysOfWeek = ["یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه", "شنبه"];
+  // const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+
+  // // افزودن دکمه‌های تاریخ
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   const dateButtonsContainer = document.getElementById('date-buttons');
+  //   if (!dateButtonsContainer) return;
+  
+  //   const daysOfWeek = ["یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه", "شنبه"];
+  //   const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+  
+  //   for (let i = 0; i < 3; i++) {
+  //     const date = new Date();
+  //     date.setDate(date.getDate() + i);
+  
+  //     const weekday = daysOfWeek[date.getDay()];
+  //     const day = date.getDate();
+  //     const month = months[date.getMonth()];
+  
+  //     const button = document.createElement('button');
+  //     button.type = "button";
+  //     button.className = "flex-1 p-3 border rounded-xl text-center text-gray-700 hover:bg-blue-100 transition";
+  //     button.innerHTML = `
+  //       <div class="font-semibold">${weekday}</div>
+  //       <div class="text-lg font-bold">${day}</div>
+  //       <div class="text-sm text-gray-500">${month}</div>
+  //     `;
+  //     button.dataset.date = date.toISOString().split('T')[0];
+  
+  //     button.addEventListener("click", () => {
+  //       document.querySelectorAll("#date-buttons button").forEach(btn => {
+  //         btn.classList.remove("bg-blue-600", "text-white");
+  //       });
+  //       button.classList.add("bg-blue-600", "text-white");
+  //       console.log("تاریخ انتخاب‌شده:", button.dataset.date);
+  //     });
+  
+  //     dateButtonsContainer.appendChild(button);
+  //   }
+  // });
+  
+
   

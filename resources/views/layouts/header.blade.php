@@ -30,11 +30,20 @@
             </svg>راه های ارتباطی</a></li>
         </ul>
         <div class="  ">
-            
+            @auth
+            <form action="{{ route ('dashboard')}}" method="get">
+            <button class=" flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
+                </svg>خرید بلیت</button>
+            </form>
+
+            @else
+            <form action="{{ route ('login.form')}}" method="get">
             <button class="login flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>عضویت/ورود</button>
-        
+            </form>
+            @endauth
             {{-- <button onclick="location.href='dashboard.php'" class="panel flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>پنل کاربری</button>   --}}
@@ -74,17 +83,29 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12" />
                 </svg></a></li>
                 <li><a class="flex flex-col justify-center items-center hover:text-[#084ac5]  hover:decoration-[#084ac5] group" href="">راه های ارتباطی<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg></a></li>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0 6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" />
+                  </svg></a></li>
             </ul>
         </div>
        
         <div class="  ">
-          
+            @auth
+            
+            <form action="{{ route ('dashboard')}}" method="get">
+            <button class="hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            
+                </svg>پروفایل</button>
+            </form>
+
+            @else
+            <form action="{{ route ('login.form')}}" method="get">
             <button class="login hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 sm:size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>ورود</button>
-        
+            </form>
+            @endauth
             {{-- <button onclick="location.href='dashboard.php'" class="panel hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm sm:text-base p-2 sm:p-3 rounded-xl "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 sm:size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>پنل کاربری</button>  
@@ -95,7 +116,7 @@
 
 
 <!-- بک‌گراند تیره و فرم ورود -->
-<div id="loginform" class="fixed inset-0 items-center justify-center z-50 hidden">
+{{-- <div id="loginform" class="fixed inset-0 items-center justify-center z-50 hidden">
 <div class="shadow-2xl bg-white p-6 rounded-lg w-80  sm:max-w-md relative">
 
 <button id="closelogin" class="absolute top-2 right-2 text-gray-800 hover:text-black">
@@ -104,6 +125,15 @@
 
 <h2 class="text-2xl font-semibold mb-4 text-center text-gray-800">ورود به حساب</h2>
 <form id="login-form" action="{{ route('login') }}" method="POST">
+    @if (session('success'))
+    <div id='toast' >
+        {{ session('success') }}
+    </div>
+    @elseif (session('error'))
+    <div id="toast">
+        {{ session('error') }}
+    </div>
+    @endif 
     @csrf
   <input id="phone-email" name="email_or_phone" type="text" placeholder="شماره موبایل" class="caret-text-gray-600 focus:outline-none border-0 bg-gray-200 placeholder:text-gray-600 w-full  p-2 rounded-4xl mb-3" />
   <input id="password" name="password" type="password" placeholder="رمز عبور" class="caret-text-gray-600 focus:outline-none border-0 bg-gray-200 placeholder:text-gray-600  w-full  p-2 rounded-4xl mb-3" />
@@ -115,10 +145,10 @@
     <a href="" class="text-gray-600 hover:text-gray-400">فراموشی رمز عبور</a>
 </div>
 </div>
-</div>
+</div> --}}
 
 <!-- فرم ثبت‌نام پاپ‌آپ -->
-<div id="signupform" class="fixed inset-0 items-center justify-center z-50 hidden">
+{{-- <div id="signupform" class="fixed inset-0 items-center justify-center z-50 hidden">
 <div class="shadow-2xl bg-white  p-6 rounded-lg w-80  sm:max-w-md relative">
 
 <button id="closeregister" class="absolute top-2 right-2 text-gray-800 hover:text-black">
@@ -127,6 +157,15 @@
 
 <h2 class="text-2xl font-semibold mb-4 text-center text-gray-800">ثبت‌نام</h2>
 <form id="signup-form" action="{{ route('register') }}" method="POST">
+    @if (session('success'))
+    <div id='toast' >
+        {{ session('success') }}
+    </div>
+    @elseif (session('error'))
+    <div id="toast">
+        {{ session('error') }}
+    </div>
+    @endif 
     @csrf
   <input name="email_or_phone" type="text" placeholder="شماره موبایل" class="caret-text-gray-600 focus:outline-none border-0 bg-gray-200 placeholder:text-gray-600  w-full  p-2 rounded-4xl mb-3" />
   <input name="password" type="password" placeholder="رمز عبور" class="caret-text-gray-600 focus:outline-none border-0 bg-gray-200 placeholder:text-gray-600  w-full  p-2 rounded-4xl mb-3" />
@@ -135,4 +174,4 @@
   <button type="submit" class="bg-[#0675ff] text-white w-full p-2 rounded-4xl">ثبت‌نام</button>
 </form>
 </div>
-</div>
+</div> --}}

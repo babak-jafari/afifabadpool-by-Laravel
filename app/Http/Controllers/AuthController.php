@@ -12,6 +12,7 @@ class AuthController extends Controller
     public function showRegisterForm()
     {
         return view('auth.register');
+        // return 'hellow';
     }
 
     public function register(Request $request)
@@ -25,8 +26,9 @@ class AuthController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
+        return back()->with('success', '✅ثبت‌نام با موفقیت انجام شد!');
 
-        return redirect()->route('login.form')->with('success', 'ثبت‌نام با موفقیت انجام شد!');
+        // return redirect()->route('login.form')->with('success', 'ثبت‌نام با موفقیت انجام شد!');
     }
 
     public function showLoginForm()
@@ -43,9 +45,17 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('success', 'با موفقیت وارد شدید!');
+            return redirect()->route('dashboard')->with('success', '✅با موفقیت وارد شدید!');
+
+            // return redirect()->intended('/')->with('success', 'با موفقیت وارد شدید!');
         }
 
-        return back()->withErrors(['phone' => 'شماره یا رمز عبور اشتباه است.'])->onlyInput('phone');
+        // return back()->with(['error' , 'شماره یا رمز عبور اشتباه است.']);
+        return back()->with('error', '❌شماره یا رمز عبور اشتباه است.');
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('main');
+        
     }
 }
