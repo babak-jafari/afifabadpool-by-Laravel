@@ -26,7 +26,7 @@ class AuthController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
-        return back()->with('success', '✅ثبت‌نام با موفقیت انجام شد!');
+        return redirect()->route('login')->with('success', '✅ثبت‌نام با موفقیت انجام شد!');
 
         // return redirect()->route('login.form')->with('success', 'ثبت‌نام با موفقیت انجام شد!');
     }
