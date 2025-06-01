@@ -37,22 +37,34 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'phone' => 'required|regex:/^09\d{9}$/',
-            'password' => 'required',
-        ]);
+{
+    $credentials = $request->validate([
+        'phone' => ['required', 'regex:/^09\d{9}$/'],
+        'password' => ['required'],
+    ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->route('dashboard')->with('success', '✅با موفقیت وارد شدید!');
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
 
-            // return redirect()->intended('/')->with('success', 'با موفقیت وارد شدید!');
+        $role = Auth::user()->role;
+
+        if ($role === 'admin') {
+            return redirect()->route('admindashboard')->with('success', '✅ با موفقیت وارد شدید!');
         }
 
-        // return back()->with(['error' , 'شماره یا رمز عبور اشتباه است.']);
-        return back()->with('error', '❌شماره یا رمز عبور اشتباه است.');
+        if ($role === 'user') {
+            return redirect()->route('dashboard')->with('success', '✅ با موفقیت وارد شدید!');
+        }
+
+        // نقش غیرمنتظره
+        Auth::logout();
+        return back()->with('error', 'نقش کاربری معتبر نیست.');
     }
+
+    return back()->with('error', '❌ شماره یا رمز عبور اشتباه است.');
+}
+
+
     public function logout(){
         Auth::logout();
         return redirect()->route('main');

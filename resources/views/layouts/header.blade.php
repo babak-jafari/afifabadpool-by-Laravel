@@ -31,18 +31,26 @@
         </ul>
         <div class="  ">
             @auth
-            <form action="{{ route ('dashboard')}}" method="get">
-            <button class=" flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
-                </svg>خرید بلیت</button>
-            </form>
-
+                @if (Auth::check() && Auth::user()->role === 'admin') 
+                    <form action="{{ route ('admindashboard')}}" method="get">
+                        <button class="hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                        </svg>داشبورد مدیریت</button>
+                    </form>
+                        
+                @elseif (Auth::check() && Auth::user()->role === 'user')
+                    <form action="{{ route ('dashboard')}}" method="get">
+                    <button class=" flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
+                        </svg>خرید بلیت</button>
+                    </form>
+                @endif
             @else
-            <form action="{{ route ('login.form')}}" method="get">
-            <button class="login flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>عضویت/ورود</button>
-            </form>
+                    <form action="{{ route ('login.form')}}" method="get">
+                    <button class="login flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>عضویت/ورود</button>
+                    </form>
             @endauth
             {{-- <button onclick="location.href='dashboard.php'" class="panel flex mt-6 w-full gap-1 justify-center items-center bg-[#0675ff] text-white p-3 rounded-xl hover:bg-[#48b9ff] duration-200 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -63,7 +71,7 @@
         </button>
         <!-- LOGO -->
         <div class="pr-20 pt-2  lg:p-0 items-center   flex justify-center">
-            <a href="{{ route('main')}}"><img class="w-15 sm:w-25    " src="./img/logo.png" width="100rem" alt="logo"></a>
+            <a href="{{ route('main')}}"><img class="w-15 sm:w-25    " src="/img/logo.png" width="100rem" alt="logo"></a>
         </div>
         <div>
             <ul class="hidden lg:flex px-6 gap-4 ">
@@ -90,21 +98,27 @@
        
         <div class="  ">
             @auth
+                @if (Auth::check() && Auth::user()->role === 'admin') 
+                    <form action="{{ route ('admindashboard')}}" method="get">
+                        <button class="hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                          </svg>داشبورد</button>
+                    </form>
+                    
+                @elseif (Auth::check() && Auth::user()->role === 'user')
             
-            <form action="{{ route ('dashboard')}}" method="get">
-            <button class="hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-            </svg>
-            
+                <form action="{{ route ('dashboard')}}" method="get">
+                    <button class="hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>پروفایل</button>
-            </form>
-
+                </form>
+                @endif
             @else
-            <form action="{{ route ('login.form')}}" method="get">
-            <button class="login hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 sm:size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>ورود</button>
-            </form>
+                <form action="{{ route ('login.form')}}" method="get">
+                    <button class="login hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm  sm:text-base p-2 sm:p-3  rounded-xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 sm:size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>ورود</button>
+                </form>   
             @endauth
             {{-- <button onclick="location.href='dashboard.php'" class="panel hover:bg-[#48b9ff] duration-200 flex gap-1 justify-center items-center bg-[#0675ff] text-white text-sm sm:text-base p-2 sm:p-3 rounded-xl "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 sm:size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />

@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\AdminArticleController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsletterController;
@@ -49,18 +50,18 @@ Route::get('/blog/{id}', [ArticleController::class, 'show'])->name('blog.show');
 
 // مسیرهای مدیریت (Admin)
 Route::middleware(AdminMiddleware::class)->group(function () {
-
     Route::get('/admindashboard', function () {
         return view('admin.admindashboard');
     })->name('admindashboard');
 
     Route::prefix('admin/articles')->name('admin.articles.')->group(function () {
-        Route::get('/', [ArticleController::class, 'adminIndex'])->name('index');
-        Route::get('/create', [ArticleController::class, 'create'])->name('create');
-        Route::post('/', [ArticleController::class, 'store'])->name('store');
-        Route::get('/{id}/edit', [ArticleController::class, 'edit'])->name('edit');
-        Route::put('/{id}', [ArticleController::class, 'update'])->name('update');
-        Route::delete('/{id}', [ArticleController::class, 'destroy'])->name('destroy');
+        Route::get('/', [AdminArticleController::class, 'index'])->name('index');
+        Route::get('/create', [AdminArticleController::class, 'create'])->name('create');
+        Route::post('/', [AdminArticleController::class, 'store'])->name('store');
+        Route::get('/{id}/edit', [AdminArticleController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [AdminArticleController::class, 'update'])->name('update');
+        Route::delete('/{id}', [AdminArticleController::class, 'destroy'])->name('destroy');
     });
-
 });
+
+

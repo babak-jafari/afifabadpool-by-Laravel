@@ -7,15 +7,15 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ArticleController extends Controller
+class AdminArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate(6); // مثلاً 6 مقاله در هر صفحه
-        return view('page.blog', compact('articles'));
+        $articles = Article::orderBy('created_at', 'desc')->paginate(8); // مثلاً 6 مقاله در هر صفحه
+        return view('admin.adminblog', compact('articles'));
     }
 
     /**

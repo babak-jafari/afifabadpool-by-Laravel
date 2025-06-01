@@ -9,7 +9,7 @@
 
 <div class="p-10 flex flex-col items-center justify-center w-full">
     <h2 class="text-2xl font-semibold mb-4 text-center text-gray-800">ویرایش مطالب</h2>
-    <form action="{{ route('admin.articles.update', $article->id) }}" method="POST" enctype="multipart/form-data" class="flex flex-col justify-center items-center w-full">>
+    <form action="{{ route('admin.articles.update', $article->id) }}" method="POST" enctype="multipart/form-data" class="flex flex-col justify-center items-center w-full">
         @method('put')
         @if (session('success'))
         <div id='toast' >
